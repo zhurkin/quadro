@@ -23,8 +23,13 @@ version_os() {
 printf '%s\n' "$ID"
 }
 
+detect_interactive_shell() {
+[[ $- == *i* ]] && echo 'Interactive shell' || echo 'not-interactive shell'
+}
+
 more_config_file
 version_os
+detect_interactive_shell
 
 #bash setting
 
