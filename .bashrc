@@ -17,19 +17,16 @@ fi
 done
 }
 
-#
-version_os() {
-. /etc/os-release
-printf '%s\n' "$ID"
-}
-
 detect_interactive_shell() {
 [[ $- == *i* ]] && echo 'Interactive shell' || echo 'not-interactive shell'
 }
 
 more_config_file
-version_os
 detect_interactive_shell
+
+if [ -f "$HOME/quadro/bin/motd.sh" ] ; then
+    "$HOME/quadro/bin/motd.sh"
+fi
 
 #bash setting
 
